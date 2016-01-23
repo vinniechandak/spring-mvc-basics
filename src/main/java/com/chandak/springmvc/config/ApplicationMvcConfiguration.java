@@ -12,7 +12,10 @@ import org.hibernate.ejb.HibernatePersistence;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -30,12 +33,14 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
+@EnableAspectJAutoProxy(proxyTargetClass = false)
+@PropertySource("classpath:database.properties")
 @ComponentScan(basePackages = { "com.chandak.springmvc" })
+@EnableJpaRepositories(basePackages = { "com.chandak.springmvc" })
 public class ApplicationMvcConfiguration extends WebMvcConfigurerAdapter {
 
-	@SuppressWarnings("restriction")
 	@Resource
-	private Environment environment;
+	Environment environment;
 
 	/** CONSTANTS **/
 	private static final String PROPERTY_NAME_DATABASE_DRIVER = "db.driver";

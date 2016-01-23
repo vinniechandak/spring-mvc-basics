@@ -16,6 +16,7 @@
 		<javax.servlet-version>3.1.0</javax.servlet-version>
 		<hibernate-version>5.0.7.Final</hibernate-version>
 		<org.apache.commons-version>2.1.1</org.apache.commons-version>
+		<mysql-version>5.1.38</mysql-version>
 	</properties>
 	<dependencies>
 		<!-- Spring -->
@@ -71,6 +72,14 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${hibernate-version}</version>
 		</dependency>
+
+		<!-- MySQL -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql-version}</version>
+		</dependency>
+
 
 		<!-- commons -->
 		<dependency>
