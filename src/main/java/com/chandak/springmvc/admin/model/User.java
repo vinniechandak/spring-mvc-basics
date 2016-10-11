@@ -5,16 +5,18 @@ package com.chandak.springmvc.admin.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Table;
 
 import com.chandak.springmvc.common.model.BaseEntity;
+import com.chandak.springmvc.common.model.Domain;
+import com.chandak.springmvc.common.model.DomainType;
 
 /**
  * @author krishna
  *
  */
 @Entity
-@Table(name = "USER")
+// @Table(name = "USER_INFO")
+@Domain(DomainType.ADMIN)
 public class User extends BaseEntity {
 
 	/**
@@ -22,10 +24,10 @@ public class User extends BaseEntity {
 	 */
 	private static final long serialVersionUID = -2029344205802552120L;
 
-	@Column(name = "firstname")
+	@Column(name = "firstName")
 	private String firstName;
 
-	@Column(name = "lastname")
+	@Column(name = "lastName")
 	private String lastName;
 
 	@Column(name = "email", unique = true, length = 200)
