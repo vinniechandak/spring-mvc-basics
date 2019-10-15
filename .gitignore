@@ -1,1 +1,8 @@
-/target/
+.idea/**/*
+.settings/**/*
+target
+
+.project
+.springBeans
+.classpath
+.project
